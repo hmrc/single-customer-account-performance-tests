@@ -24,6 +24,4 @@ object Utils {
   lazy val SCAFrontEnd = baseUrlFor("sca-frontend")
   lazy val YourTaxesAndBenefits = baseUrlFor("sca-frontend")
   lazy val Messages = baseUrlFor("sca-frontend")
-  lazy val Feedback = baseUrlFor("feedback-frontend")
-
 }

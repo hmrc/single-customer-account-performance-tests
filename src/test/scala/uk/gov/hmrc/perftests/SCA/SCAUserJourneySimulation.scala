@@ -26,8 +26,7 @@ class SCAUserJourneySimulation extends PerformanceTestRunner {
     postGGCredentials(nino = "AA999999A", isLocal = runLocal),
     getSCAHomePage,
     getYourTaxesAndBenefits,
-    getMessages,
-    getFeedbackPage
+    getMessages
   )
   runSimulation()
 }

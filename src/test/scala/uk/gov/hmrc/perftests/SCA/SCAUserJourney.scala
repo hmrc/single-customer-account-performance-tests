@@ -108,9 +108,4 @@ object SCAUserJourney extends ServicesConfiguration {
       .check(status.in(200))
       .check(currentLocation.is(Messages + "/single-customer-account/messages": String))
 
-  def getFeedbackPage: HttpRequestBuilder =
-    http("GET - Feedback Page")
-      .get(Feedback + "/feedback/single-customer-account-frontend": String)
-      .check(status.in(200))
-      .check(currentLocation.is(Feedback + "/feedback/single-customer-account-frontend": String))
 }
