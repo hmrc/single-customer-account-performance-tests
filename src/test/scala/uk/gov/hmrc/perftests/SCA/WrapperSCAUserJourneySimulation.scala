@@ -14,22 +14,26 @@
  * limitations under the License.
  */
 
-/*
-
 package uk.gov.hmrc.perftests.SCA
 
 import uk.gov.hmrc.performance.simulation.PerformanceTestRunner
-import uk.gov.hmrc.perftests.SCA.SCAUserJourney._
+import uk.gov.hmrc.perftests.SCA
+import uk.gov.hmrc.perftests.SCA.WrapperSCAUserJourney.{getGGStartPage, postGGCredentials}
 
-class SCAUserJourneySimulation extends PerformanceTestRunner {
+
+class WrapperSCAUserJourneySimulation extends PerformanceTestRunner {
 
   setup("SCA-HomePage", "SCA Home Page") withRequests(
-    getGGStartPage,
-    postGGCredentials(nino = "AA999999A", isLocal = runLocal),
-    getSCAHomePage,
-    getYourTaxesAndBenefits,
-    getMessages
+   getGGStartPage,
+    postGGCredentials(nino = "ER872414B", isLocal = runLocal),
+    WrapperSCAUserJourney.getSCAHomePage,
+    WrapperSCAUserJourney.getMessages,
+    WrapperSCAUserJourney.getAccountHome,
+    WrapperSCAUserJourney.getProfileandSettings,
+    WrapperSCAUserJourney.getEnglishLanguageToggle,
+    WrapperSCAUserJourney.getWelshLanguageToggle,
+    WrapperSCAUserJourney.getCheckProgress
+
   )
   runSimulation()
 }
-*/
