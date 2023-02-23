@@ -16,13 +16,15 @@
 
 package uk.gov.hmrc.perftests.SCA
 
+import io.gatling.http.request.builder.HttpRequestBuilder
 import uk.gov.hmrc.performance.conf.ServicesConfiguration
+import uk.gov.hmrc.perftests.SCA.Utils._
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import io.gatling.http.request.builder.HttpRequestBuilder
-import uk.gov.hmrc.perftests.SCA.Utils._
 
-object SCAUserJourney extends ServicesConfiguration {
+
+
+object WrapperSCAUserJourney extends ServicesConfiguration {
   // GGLogin
   def getGGStartPage: HttpRequestBuilder =
     http("GET - GG Login Page")
@@ -96,17 +98,44 @@ object SCAUserJourney extends ServicesConfiguration {
       .check(status.in(200, 303))
       .check(currentLocation.is(SCAFrontEnd + "/single-customer-account": String))
 
-  def getYourTaxesAndBenefits: HttpRequestBuilder =
-    http("GET - YourTaxesAndBenefits")
-      .get(YourTaxesAndBenefits + "/single-customer-account/taxes-and-benefits": String)
-      .check(status.in(200))
-      .check(currentLocation.is(YourTaxesAndBenefits + "/single-customer-account/taxes-and-benefits": String))
+  def getAccountHome: HttpRequestBuilder =
+    http("GET - SCA Account Home")
+      .get(AccountHome + "/personal-account": String)
+      .check(status.in(200, 303))
+      .check(currentLocation.is(AccountHome + "/personal-account": String))
 
 
   def getMessages: HttpRequestBuilder =
     http("GET - SCA Messages")
-      .get(Messages + "/single-customer-account/messages": String)
+      .get(Messages + "/personal-account/messages": String)
+      .check(status.in(200, 303))
+      .check(currentLocation.is(Messages + "/personal-account/messages": String))
+
+  def getCheckProgress: HttpRequestBuilder =
+    http("GET - SCA CheckProgress")
+      .get(CheckProgress + "/track": String)
       .check(status.in(200))
-      .check(currentLocation.is(Messages + "/single-customer-account/messages": String))
+      .check(currentLocation.is(CheckProgress + "/track": String))
+
+
+  def getProfileandSettings: HttpRequestBuilder =
+    http("GET - SCA Profile and settings")
+      .get(ProfileAndSettings + "/personal-account/profile-and-settings": String)
+      .check(status.in(200, 303))
+      .check(currentLocation.is(ProfileAndSettings + "/personal-account/profile-and-settings": String))
+
+
+  def getWelshLanguageToggle: HttpRequestBuilder =
+    http("GET - SCA Welsh Language")
+      .get(WelshLanguageToggle + "/single-customer-account/hmrc-frontend/language/cy": String)
+      .check(status.in(200, 303))
+      .check(currentLocation.is(WelshLanguageToggle + "/single-customer-account/hmrc-frontend/language/cy": String))
+
+  def getEnglishLanguageToggle: HttpRequestBuilder =
+    http("GET - SCA English Language")
+      .get(EnglishLanguageToggle + "/single-customer-account/hmrc-frontend/language/en": String)
+      .check(status.in(200, 303))
+      .check(currentLocation.is(EnglishLanguageToggle + "/single-customer-account/hmrc-frontend/language/en": String))
+
 
 }
