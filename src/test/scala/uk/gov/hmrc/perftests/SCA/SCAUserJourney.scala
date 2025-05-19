@@ -65,9 +65,9 @@ object SCAUserJourney extends ServicesConfiguration {
       .formParam("enrolment[2].taxIdentifier[0].name", "")
       .formParam("enrolment[2].taxIdentifier[0].value", "")
       .formParam("enrolment[2].state", "Activated")
-      .formParam("enrolment[3].name", "")
-      .formParam("enrolment[3].taxIdentifier[0].name", "")
-      .formParam("enrolment[3].taxIdentifier[0].value", "")
+      .formParam("enrolment[3].name", "HMRC-PT")
+      .formParam("enrolment[3].taxIdentifier[0].name", "NINO")
+      .formParam("enrolment[3].taxIdentifier[0].value", nino)
       .formParam("enrolment[3].state", "Activated")
       .formParam("enrolment[4].name", "IR-SA")
       .formParam("enrolment[4].taxIdentifier[0].name", "UTR")
@@ -101,7 +101,6 @@ object SCAUserJourney extends ServicesConfiguration {
       .get(YourTaxesAndBenefits + "/single-customer-account/taxes-and-benefits": String)
       .check(status.in(200))
       .check(currentLocation.is(YourTaxesAndBenefits + "/single-customer-account/taxes-and-benefits": String))
-
 
   def getMessages: HttpRequestBuilder =
     http("GET - SCA Messages")
