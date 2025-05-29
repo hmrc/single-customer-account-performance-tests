@@ -102,7 +102,6 @@ object SCAUserJourney extends ServicesConfiguration {
       .check(status.in(200))
       .check(currentLocation.is(YourTaxesAndBenefits + "/single-customer-account/taxes-and-benefits": String))
 
-
   def getMessages: HttpRequestBuilder =
     http("GET - SCA Messages")
       .get(Messages + "/single-customer-account/messages": String)
