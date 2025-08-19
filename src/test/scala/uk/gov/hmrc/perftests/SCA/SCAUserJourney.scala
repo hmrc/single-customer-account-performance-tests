@@ -29,12 +29,14 @@ object SCAUserJourney extends ServicesConfiguration {
       .get(GGLoginFrontEnd + "/auth-login-stub/gg-sign-in": String)
       .check(status.in(200, 303))
       .check(currentLocation.is(GGLoginFrontEnd + "/auth-login-stub/gg-sign-in": String))
+      .check(css("input[name=csrfToken]", "value").saveAs("csrfToken"))
 
   def postGGCredentials(nino: String, isLocal: Boolean = false): HttpRequestBuilder = {
     val redirectionUrl = if (isLocal) "http://localhost:8420/single-customer-account" else "/single-customer-account"
 
     http("POST - GG Login credentials page")
       .post(GGLoginFrontEnd + "/auth-login-stub/gg-sign-in": String)
+      .formParam("csrfToken", "${csrfToken}")
       .formParam("authorityId", "")
       .formParam("gatewayToken", "")
       .formParam("redirectionUrl", redirectionUrl)
