@@ -32,7 +32,7 @@ class WrapperSCAUserJourneySimulation extends PerformanceTestRunner {
     WrapperSCAUserJourney.getProfileandSettings,
     WrapperSCAUserJourney.getEnglishLanguageToggle,
     WrapperSCAUserJourney.getWelshLanguageToggle,
-    WrapperSCAUserJourney.getCheckProgress
+//    WrapperSCAUserJourney.getCheckProgress
 
   )
   runSimulation()
