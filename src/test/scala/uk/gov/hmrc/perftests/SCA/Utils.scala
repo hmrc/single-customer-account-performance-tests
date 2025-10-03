@@ -1,5 +1,5 @@
 /*
- * Copyright 2023 HM Revenue & Customs
+ * Copyright 2025 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,13 +20,13 @@ import uk.gov.hmrc.perftests.SCA.SCAUserJourney.baseUrlFor
 
 object Utils {
 
-  lazy val GGLoginFrontEnd = baseUrlFor("auth-frontend")
-  lazy val SCAFrontEnd = baseUrlFor("sca-frontend")
-  lazy val YourTaxesAndBenefits = baseUrlFor("sca-frontend")
-  lazy val CheckProgress = baseUrlFor("tracking-frontend")
-  lazy val Messages = baseUrlFor("pertax-frontend")
-  lazy val ProfileAndSettings = baseUrlFor("pertax-frontend")
-  lazy val AccountHome = baseUrlFor("pertax-frontend")
-  lazy val WelshLanguageToggle = baseUrlFor("sca-frontend")
-  lazy val EnglishLanguageToggle = baseUrlFor("sca-frontend")
+  lazy val GGLoginFrontEnd: String = baseUrlFor("auth-frontend")
+  lazy val SCAFrontEnd: String = baseUrlFor("sca-frontend")
+  lazy val YourTaxesAndBenefits: String = baseUrlFor("sca-frontend")
+  lazy val CheckProgress: String = baseUrlFor("tracking-frontend")
+  lazy val Messages: String = baseUrlFor("pertax-frontend")
+  lazy val ProfileAndSettings: String = baseUrlFor("pertax-frontend")
+  lazy val AccountHome: String = baseUrlFor("pertax-frontend")
+  lazy val WelshLanguageToggle: String = baseUrlFor("sca-frontend")
+  lazy val EnglishLanguageToggle: String = baseUrlFor("sca-frontend")
 }
