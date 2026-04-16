@@ -3,7 +3,7 @@ lazy val root = (project in file("."))
   .settings(
     name := "single-customer-account-performance-tests",
     version := "3.0.0-SNAPSHOT",
-    scalaVersion := "2.13.16",
+    scalaVersion := "3.7.4",
     scalacOptions ++= Seq("-feature", "-language:implicitConversions", "-language:postfixOps"),
     Test / testOptions := Seq.empty,
     libraryDependencies ++= Dependencies.test
