@@ -36,57 +36,57 @@ object SCAUserJourney extends ServicesConfiguration {
 
     http("POST - GG Login credentials page")
       .post(GGLoginFrontEnd + "/auth-login-stub/gg-sign-in": String)
-      .formParam("csrfToken", "#{csrfToken}")
-      .formParam("authorityId", "")
-      .formParam("gatewayToken", "")
-      .formParam("redirectionUrl", redirectionUrl)
-      .formParam("credentialStrength", "strong")
-      .formParam("confidenceLevel", "200")
-      .formParam("affinityGroup", "Individual")
-      .formParam("usersName", "")
-      .formParam("email", "user@test.com")
-      .formParam("credentialRole", "User")
-      .formParam("nino", "#{NINO}")
-      .formParam("groupIdentifier", "")
-      .formParam("agent.agentId", "")
-      .formParam("agent.agentCode", "")
-      .formParam("agent.agentFriendlyName", "")
-      .formParam("unreadMessageCount", "")
-      .formParam("mdtp.sessionId", "")
-      .formParam("mdtp.deviceId", "")
-      .formParam("presets-dropdown", "IR-SA")
-      .formParam("enrolment[0].name", "")
-      .formParam("enrolment[0].taxIdentifier[0].name", "")
-      .formParam("enrolment[0].taxIdentifier[0].value", "")
-      .formParam("enrolment[0].state", "Activated")
-      .formParam("enrolment[1].name", "")
-      .formParam("enrolment[1].taxIdentifier[0].name", "")
-      .formParam("enrolment[1].taxIdentifier[0].value", "")
-      .formParam("enrolment[1].state", "Activated")
-      .formParam("enrolment[2].name", "")
-      .formParam("enrolment[2].taxIdentifier[0].name", "")
-      .formParam("enrolment[2].taxIdentifier[0].value", "")
-      .formParam("enrolment[2].state", "Activated")
-      .formParam("enrolment[3].name", "")
-      .formParam("enrolment[3].taxIdentifier[0].name", "")
-      .formParam("enrolment[3].taxIdentifier[0].value", "")
-      .formParam("enrolment[3].state", "Activated")
-      .formParam("enrolment[4].name", "IR-SA")
-      .formParam("enrolment[4].taxIdentifier[0].name", "UTR")
-      .formParam("enrolment[4].taxIdentifier[0].value", "#{UTRNumber}")
-      .formParam("enrolment[4].state", "Activated")
-      .formParam("itmp.givenName", "")
-      .formParam("itmp.middleName", "")
-      .formParam("itmp.familyName", "")
-      .formParam("itmp.dateOfBirth", "")
-      .formParam("itmp.address.line1", "")
-      .formParam("itmp.address.line2", "")
-      .formParam("itmp.address.line3", "")
-      .formParam("itmp.address.line4", "")
-      .formParam("itmp.address.line5", "")
-      .formParam("itmp.address.postCode", "")
-      .formParam("itmp.address.countryName", "")
-      .formParam("itmp.address.countryCode", "")
+      .formParamMap(Map("csrfToken" -> "#{csrfToken}",
+      "authorityId" -> "",
+      "gatewayToken" -> "",
+      "redirectionUrl" -> redirectionUrl,
+      "credentialStrength" -> "strong",
+      "confidenceLevel" -> "200",
+      "affinityGroup" -> "Individual",
+      "usersName" -> "",
+      "email" -> "user@test.com",
+      "credentialRole" -> "User",
+      "nino" -> "#{NINO}",
+      "groupIdentifier" -> "",
+      "agent.agentId" -> "",
+      "agent.agentCode" -> "",
+      "agent.agentFriendlyName" -> "",
+      "unreadMessageCount" -> "",
+      "mdtp.sessionId" -> "",
+      "mdtp.deviceId" -> "",
+      "presets-dropdown" -> "IR-SA",
+      "enrolment[0].name" -> "",
+      "enrolment[0].taxIdentifier[0].name" -> "",
+      "enrolment[0].taxIdentifier[0].value" -> "",
+      "enrolment[0].state" -> "Activated",
+      "enrolment[1].name" -> "",
+      "enrolment[1].taxIdentifier[0].name" -> "",
+      "enrolment[1].taxIdentifier[0].value" -> "",
+      "enrolment[1].state" -> "Activated",
+      "enrolment[2].name" -> "",
+      "enrolment[2].taxIdentifier[0].name" -> "",
+      "enrolment[2].taxIdentifier[0].value" -> "",
+      "enrolment[2].state" -> "Activated",
+      "enrolment[3].name" -> "",
+      "enrolment[3].taxIdentifier[0].name" -> "",
+      "enrolment[3].taxIdentifier[0].value" -> "",
+      "enrolment[3].state" -> "Activated",
+      "enrolment[4].name" -> "IR-SA",
+      "enrolment[4].taxIdentifier[0].name" -> "UTR",
+      "enrolment[4].taxIdentifier[0].value" -> "#{UTRNumber}",
+      "enrolment[4].state" -> "Activated",
+      "itmp.givenName" -> "",
+      "itmp.middleName" -> "",
+      "itmp.familyName" -> "",
+      "itmp.dateOfBirth" -> "",
+      "itmp.address.line1" -> "",
+      "itmp.address.line2" -> "",
+      "itmp.address.line3" -> "",
+      "itmp.address.line4" -> "",
+      "itmp.address.line5" -> "",
+      "itmp.address.postCode" -> "",
+      "itmp.address.countryName" -> "",
+      "itmp.address.countryCode" -> ""))
       .check(status.is(303))
       .check(currentLocation.is(GGLoginFrontEnd + "/auth-login-stub/gg-sign-in": String))
   }
